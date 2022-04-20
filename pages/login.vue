@@ -27,7 +27,7 @@ export default {
       // can be one of 'email' or 'phone_number_sms'
       identifierType: 'email',
       // Add the API key
-      apiKey: '73779307-b876-4454-b7a2-d7863a603e17',
+      apiKey: process.env.NUXT_ENV_SAWO_API_KEY,
       // Add a callback here to handle the payload sent by sdk
       onSuccess: (payload) => {
         this.userPayload = payload
