@@ -38,9 +38,7 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
-  // publicRuntimeConfig: {
-  //   SAWO_API_KEY: process.env.SAWO_API_KEY,
-  // }
+  target: 'static',
 };
 
 // module.exports = {
