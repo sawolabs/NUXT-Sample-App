@@ -3,12 +3,12 @@
     <div class="container">
       <nav
         class="navbar nav-m navbar-light primary-menu"
-        style="background-color: #fff; justify-content: space-between;"
+        style="background-color: #fff; justify-content: space-between"
       >
         <a class="navbar-brand" href="#"
           ><img class="navbar-logo" src="../assets/logo.jpg"
         /></a>
-        <ul style="display: flex; align-items:center">
+        <ul style="display: flex; align-items: center">
           <li><a class="/" href="/">Home</a></li>
           <li><a href="/">Pricing</a></li>
           <li><a href="/">Docs</a></li>
@@ -115,6 +115,8 @@ body {
   background-image: url("../assets/bg.png");
   background-repeat: no-repeat;
   background-size: cover;
+  margin: 0;
+  font-family: "Lato";
 }
 
 ul {

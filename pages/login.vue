@@ -1,44 +1,54 @@
 <template>
   <section>
     <div class="login-container">
-    <h1 class="title">{{ currentTitle }}</h1>
-    <div class="loggedin" v-if="isLoggedIn">Hello User</div>
-    <div class="formContainer" id="sawo-container" v-if="!isLoggedIn">
-      <!-- The div in which sawo form is displayed -->
-    </div>
+      <h1 class="title">{{ currentTitle }}</h1>
+      <div class="loggedin">
+        User Logged In:<strong> {{ isLoggedIn }} </strong>
+      </div>
+      <div class="formContainer" id="sawo-container" v-if="!isLoggedIn">
+        <!-- The div in which sawo form is displayed -->
+      </div>
+      <div class="show-payload" v-if="isLoggedIn">
+        <div class="show-payload-bg">
+          <h3>User Successful Login</h3>
+          <span>UserId: {{ userPayload.user_id }}</span>
+          <br />
+          <span>Verification Token: {{ userPayload.verification_token }}</span>
+        </div>
+      </div>
     </div>
   </section>
 </template>
 
 <script>
-import Sawo from 'sawo'
+import Sawo from "sawo";
 export default {
-  name: 'Sawo',
+  name: "Sawo",
   data: () => ({
     isLoggedIn: false,
-    currentTitle: 'Login Page',
+    currentTitle: "SAWO NUXT Example App",
     userPayload: {},
     Sawo: null,
   }),
   mounted() {
     const config = {
       // should be same as the id of the container
-      containerID: 'sawo-container',
+      containerID: "sawo-container",
       // can be one of 'email' or 'phone_number_sms'
-      identifierType: 'email',
+      identifierType: "email",
       // Add the API key
       apiKey: process.env.NUXT_ENV_SAWO_API_KEY,
       // Add a callback here to handle the payload sent by sdk
       onSuccess: (payload) => {
-        this.userPayload = payload
-        this.isLoggedIn = true
-        this.currentTitle = 'Dashboard'
+        this.userPayload = payload;
+        this.isLoggedIn = true;
+        this.currentTitle = "Dashboard";
       },
-    }
-    this.Sawo = new Sawo(config)
-    this.Sawo.showForm()
+    };
+    this.Sawo = new Sawo(config);
+    this.Sawo.showForm();
   },
-}
+};
 </script>
 
 <style>
@@ -47,31 +57,18 @@ export default {
   object-fit: contain;
 }
 
-#sawo-container {
-  height: 400px;
-  width: 300px;
-}
 .login-container {
-  flex: 0.4;
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
-  max-width: 400px;
-  min-height: 400px;
-  padding: 20px;
-  margin-left:30%;
-  border-radius: 10px;
-  border: 1px solid grey;
-  background-color: #fff;
-  height : 80%;
-  color: #000;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f9f9f9;
 }
 
 .login-container h1 {
   font-weight: 500;
   font-size: 40px;
-  line-height: 48px;
   color: #1f1e1e;
 }
 
@@ -80,6 +77,36 @@ export default {
   text-align: center;
 }
 
+.formContainer {
+  padding: 1rem;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  height: 300px;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loggedin {
+  margin-bottom: 10px;
+}
+
+.show-payload {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 300px;
+}
+
+.show-payload-bg {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  padding: 10px;
+  border-radius: 10px;
+}
 
 @media (max-width: 400px) {
   .container img {
@@ -92,7 +119,6 @@ export default {
   }
 
   #sawo-container {
-    /* height: 500px; */
     background-color: #bcedef;
     width: 100%;
   }
