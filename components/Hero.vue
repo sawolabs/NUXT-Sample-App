@@ -8,7 +8,7 @@
         <a class="navbar-brand" href="#"
           ><img class="navbar-logo" src="../assets/logo.jpg"
         /></a>
-        <ul style="display: flex; align-items: center">
+        <ul class="navbar-links">
           <li><a class="/" href="/">Home</a></li>
           <li><a href="/">Pricing</a></li>
           <li><a href="/">Docs</a></li>
@@ -16,14 +16,13 @@
           <li><a href="/">Contact Us</a></li>
           <li style="float: right">
             <Nuxt-link to="/login">
-              <a class="btn1 btn-warning" type="button">
-                Login<font-awesome-icon
-                  icon="sign-in"
-                  style="font-size: 15px,float:right"
-                /> </a
-            ></Nuxt-link>
+              <a class="btn1 btn-warning" type="button"> Login</a></Nuxt-link
+            >
           </li>
         </ul>
+        <div class="small-screen-navlink">
+            <a class="btn1 btn-warning" type="button" href="/login"> Login</a>
+        </div>
       </nav>
     </div>
     <main>
@@ -34,40 +33,39 @@
         </button>
       </div>
       <div class="feature-cards row">
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <div class="card mb-4 mx-auto">
+        <div class="">
+          <div class="card">
             <div class="card-body">
               <h4 class="card-title">Feature One</h4>
               <p class="card-text">
                 Some quick example text to build on the card title and make up
-                the bulk of the card's content.<br />
-                <a href="#" class="btn1 btn-warning">Go somewhere</a>
+                the bulk of the card's content.
               </p>
+              <a href="#" class="btn1 btn-warning">Go somewhere</a>
             </div>
           </div>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <div class="card mb-4 mx-auto">
+        <div class="">
+          <div class="card">
             <div class="card-body">
               <h4 class="card-title">Feature Two</h4>
               <p class="card-text">
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
-                <br />
-                <a href="#" class="btn1 btn-warning">Go somewhere</a>
               </p>
+              <a href="#" class="btn1 btn-warning">Go somewhere</a>
             </div>
           </div>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <div class="card mb-4 mx-auto">
+        <div class="">
+          <div class="card">
             <div class="card-body">
               <h4 class="card-title">Feature Three</h4>
               <p class="card-text">
                 Some quick example text to build on the card title and make up
-                the bulk of the card's content.<br />
-                <a href="#" class="btn1 btn-warning">Go somewhere</a>
+                the bulk of the card's content.
               </p>
+              <a href="#" class="btn1 btn-warning">Go somewhere</a>
             </div>
           </div>
         </div>
@@ -113,7 +111,7 @@ export default {
 
 body {
   background-image: url("../assets/bg.png");
-  background-repeat: no-repeat;
+  background-repeat: initial;
   background-size: cover;
   margin: 0;
   font-family: "Lato";
@@ -125,6 +123,15 @@ ul {
   padding: 0;
   overflow: hidden;
   background-color: white;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+}
+
+.small-screen-navlink {
+  display: none;
 }
 
 li a {
@@ -168,6 +175,7 @@ li a {
   padding-left: 2% !important;
   padding-right: 2% !important;
 }
+
 .navbar-brand {
   width: 100px;
   height: 80px;
@@ -222,14 +230,11 @@ main {
 }
 
 .feature-cards {
-  margin-top: 5rem;
-  margin-bottom: 5rem;
-  margin-left: 3rem;
-  margin-right: 3rem;
-  height: 300px;
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
+  align-content: space-around;
+  align-items: center;
   flex-direction: row;
 }
 
@@ -238,7 +243,8 @@ main {
 }
 
 .card {
-  margin-right: 3rem;
+  border-radius: 10px;
+  margin: 1rem;
   background-color: #ffffff;
   width: 20em;
   height: 200px;
@@ -246,6 +252,19 @@ main {
 }
 .card-body {
   padding: 3% 3%;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+@media screen and (max-width: 720px) {
+  .navbar-links {
+    display: none;
+  }
+  .small-screen-navlink {
+    display: flex;
+    margin: 1rem;
+  }
 }
 </style>

@@ -52,52 +52,22 @@ export default {
 </script>
 
 <style>
-.container img {
-  flex: 0.6;
-  object-fit: contain;
-}
-
 .login-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #fff;
   height: 100vh;
-  background-color: #f9f9f9;
-}
-
-.login-container h1 {
-  font-weight: 500;
-  font-size: 40px;
-  color: #1f1e1e;
-}
-
-.login-container p {
-  padding: 0 10px 0 10px;
-  text-align: center;
 }
 
 .formContainer {
   padding: 1rem;
-  background-color: #f3f3f3;
-  border-radius: 10px;
   height: 300px;
   width: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.loggedin {
-  margin-bottom: 10px;
-}
-
-.show-payload {
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  height: 300px;
 }
 
 .show-payload-bg {
@@ -108,18 +78,12 @@ export default {
   border-radius: 10px;
 }
 
+.loggedin{
+  margin-bottom: 1rem;
+}
+
 @media (max-width: 400px) {
-  .container img {
-    display: none;
-  }
-
-  .login-container {
-    border: none;
-    flex: 1;
-  }
-
   #sawo-container {
-    background-color: #bcedef;
     width: 100%;
   }
 }
